@@ -29,11 +29,11 @@ def svg_to_pdf_chromium():
     #     google_url = GetUrl.getUrlLink(line)
     #     saveAsPdf(webdriver_chrome, google_url, line)
 
-    for i in range(1,2):
+    for i in range(13,50):
         line = 'Exam AWS Certified Developer - Associate DVA-C02 topic 1 question "' + str(i) + '" discussion'
+        time.sleep(10)
         google_url = GetUrl.getUrlLink(line)
         print(google_url)
-        time.sleep(5)
         saveAsPdf(webdriver_chrome, google_url, line)
 
     webdriver_chrome.close()
@@ -47,7 +47,7 @@ def saveAsPdf(webdriver_chrome, google_url, file_name):
             "displayHeaderFooter": False,
             "scale": 0.75,
         })
-    with open(f'\\aws\\' + file_name + '.pdf', "wb") as f:
+    with open(f'aws/' + file_name + '.pdf', "wb") as f:
         f.write(base64.b64decode(pdf['data']))
 
 
